@@ -43,6 +43,25 @@ export const fetchUserNotes = async (req, res, next) => {
 };
 
 /**
+ * edit a note
+ *
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ */
+export const editNote = async (req, res, next) => {
+	const noteId = req.params.id;
+	const { title, body } = req.body;
+
+	try {
+		const editedNote = await noteService.editNoteByID(noteId, title, body);
+		res.status(HttpStatus.OK).send(editedNote);
+	} catch (err) {
+		next(err);
+	}
+};
+
+/**
  * Delete a note
  *
  * @param {Object} req
@@ -52,7 +71,7 @@ export const fetchUserNotes = async (req, res, next) => {
 export const deleteNote = async (req, res, next) => {
 	const noteId = req.params.id;
 	try {
-		await noteService.deleteNote(noteId);
+		await noteService.deleteNoteByID(noteId);
 		res.status(HttpStatus.OK).send("note deleted successfully");
 	} catch (err) {
 		next(err);

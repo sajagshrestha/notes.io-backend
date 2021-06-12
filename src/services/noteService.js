@@ -19,7 +19,7 @@ export const create = async (note) => {
 export const getUserNotes = async (userID) => {
 	return Note.where("user_id", userID)
 		.orderBy("created_at", "DESC")
-		.fetchAll();
+		.fetchAll({ withRelated: ["user"] });
 };
 
 /**
@@ -36,12 +36,27 @@ export const getNoteByID = async (noteID) => {
 };
 
 /**
+ * edit a note
+ *
+ * @param {String} noteID
+ * @param {String} title
+ * @param {String} body
+ * @returns {Promise}
+ */
+export const editNoteByID = async (noteID, title, body) => {
+	return Note.forge({ id: noteID }).save(
+		{ title, body },
+		{ method: "update" }
+	);
+};
+
+/**
  * delete a note
  *
  * @param {String} noteID
  * @returns {Promise}
  */
-export const deleteNote = async (noteID) => {
+export const deleteNoteByID = async (noteID) => {
 	return Note.where("id", noteID).destroy({
 		require: false,
 	});

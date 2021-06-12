@@ -2,7 +2,7 @@ import * as noteService from "../services/noteService.js";
 import createError from "http-errors";
 
 /**
- * Authorize user and also checks if note exists
+ * Authorizes user and also checks if note exists
  *
  * @param {Object} req
  * @param {Object} res
