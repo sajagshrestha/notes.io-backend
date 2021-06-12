@@ -3,7 +3,7 @@ import Note from "../models/Note.js";
 /**
  * create new note
  *
- * @param	{Object}  note
+ * @param	{Object} note
  * @returns	{Promise}
  */
 export const create = async (note) => {
@@ -13,7 +13,7 @@ export const create = async (note) => {
 /**
  * get all notes of a user
  *
- * @param	{String}  id
+ * @param	{String} id
  * @returns	{Promise}
  */
 export const getUserNotes = async (id) => {

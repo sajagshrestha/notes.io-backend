@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 /**
  * create jwt token
  *
- * @param   {Object}   payload
+ * @param {Object} payload
  * @returns {String}
  */
 export const createAccessToken = (payload) => {
@@ -13,7 +13,7 @@ export const createAccessToken = (payload) => {
 /**
  * verify jwt token
  *
- * @param   {String}   token
+ * @param {String} token
  * @returns {Promise}
  */
 export const verifyToken = async (token) => {

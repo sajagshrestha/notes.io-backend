@@ -5,9 +5,9 @@ import HttpStatus from "http-status-codes";
 /**
  * create note
  *
- * @param   {Object}   req
- * @param   {Object}   res
- * @param   {Function} next
+ * @param	{Object} req
+ * @param	{Object} res
+ * @param	{Function} next
  */
 export const createNote = async (req, res, next) => {
 	const userID = req.authenticatedUserID;
@@ -26,11 +26,11 @@ export const createNote = async (req, res, next) => {
 };
 
 /**
- * fetch all notes of a user
+ * fetch all user notes
  *
- * @param   {Object}   req
- * @param   {Object}   res
- * @param   {Function} next
+ * @param	{Object} req
+ * @param	{Object} res
+ * @param	{Function} next
  */
 export const fetchUserNotes = async (req, res, next) => {
 	const userID = req.authenticatedUserID;

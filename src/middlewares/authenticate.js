@@ -1,12 +1,13 @@
 import HttpStatus from "http-status-codes";
 import createError from "http-errors";
 import { verifyToken } from "../utils/jwt.js";
+
 /**
  * authenticate user
  *
- * @param   {Object}   req
- * @param   {Object}   res
- * @param   {Function} next
+ * @param	{Object} req
+ * @param	{Object} res
+ * @param	{Function} next
  */
 export const authenticate = async (req, res, next) => {
 	const { authorization } = req.headers;

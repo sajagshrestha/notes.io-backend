@@ -11,9 +11,9 @@ import { createAccessToken } from "../utils/jwt.js";
 /**
  * create user account
  *
- * @param   {Object}   req
- * @param   {Object}   res
- * @param   {Function} next
+ * @param	{Object} req
+ * @param	{Object} res
+ * @param	{Function} next
  */
 export const signUserUp = async (req, res, next) => {
 	const { email, username, password } = req.body;
@@ -42,9 +42,9 @@ export const signUserUp = async (req, res, next) => {
 /**
  * user login
  *
- * @param   {Object}   req
- * @param   {Object}   res
- * @param   {Function} next
+ * @param	{Object} req
+ * @param	{Object} res
+ * @param	{Function} next
  */
 export const logUserIn = async (req, res, next) => {
 	const { email, password } = req.body;

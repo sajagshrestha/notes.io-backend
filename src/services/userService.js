@@ -3,7 +3,7 @@ import User from "../models/User.js";
 /**
  * create user
  *
- * @param	{Object}  user
+ * @param	{Object} user
  * @returns	{Promise}
  */
 export const createUser = async (user) => {
@@ -13,7 +13,7 @@ export const createUser = async (user) => {
 /**
  * get user by email
  *
- * @param	{Object}  user
+ * @param	{Object} user
  * @returns	{Promise}
  */
 export const getUserByEmail = async (email) => {
