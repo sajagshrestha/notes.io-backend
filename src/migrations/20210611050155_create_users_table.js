@@ -4,7 +4,7 @@ export function up(knex) {
 		table.string("email").unique().notNullable();
 		table.string("username").notNullable();
 		table.string("password").notNullable();
-		table.timestamps(true, true);
+		table.timestamps();
 	});
 }
 

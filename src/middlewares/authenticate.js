@@ -10,6 +10,7 @@ import { verifyToken } from "../utils/jwt.js";
  */
 export const authenticate = async (req, res, next) => {
 	const { authorization } = req.headers;
+
 	const token = authorization && authorization.split(" ")[1];
 	if (!token) return res.sendStatus(HttpStatus.UNAUTHORIZED);
 
