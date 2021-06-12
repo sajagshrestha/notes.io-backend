@@ -11,13 +11,26 @@ export const create = async (note) => {
 };
 
 /**
- * Get all user notes
+ * Get all notes of a specific user
  *
- * @param {Object} note
+ * @param {String} userID
  * @returns {Promise}
  */
-export const getUserNotes = async (id) => {
-	return Note.where("user_id", id)
+export const getUserNotes = async (userID) => {
+	return Note.where("user_id", userID)
 		.orderBy("created_at", "DESC")
-		.fetchAll({ withRelated: ["user"] });
+		.fetchAll();
+};
+
+/**
+ * Get note by id with user info
+ *
+ * @param {String} noteID
+ * @returns {Promise}
+ */
+export const getNoteByID = async (noteID) => {
+	return Note.where("id", noteID).fetch({
+		withRelated: ["user"],
+		require: false,
+	});
 };

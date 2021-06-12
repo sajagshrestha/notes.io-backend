@@ -41,3 +41,14 @@ export const fetchUserNotes = async (req, res, next) => {
 		console.log(err);
 	}
 };
+
+/**
+ * Fetch all user note
+ *
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ */
+export const deleteNote = async (req, res, next) => {
+	res.send("notes deleted");
+};

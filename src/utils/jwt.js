@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
  * @returns {String}
  */
 export const createAccessToken = (payload) => {
+	console.log(process.env.SECRET_KEY);
 	return jwt.sign(payload, process.env.SECRET_KEY);
 };
 

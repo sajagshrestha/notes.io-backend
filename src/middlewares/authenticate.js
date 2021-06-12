@@ -9,7 +9,7 @@ import { verifyToken } from "../utils/jwt.js";
  * @param {Object} res
  * @param {Function} next
  */
-export const authenticate = async (req, res, next) => {
+const authenticate = async (req, res, next) => {
 	const { authorization } = req.headers;
 
 	const token = authorization && authorization.split(" ")[1];
@@ -18,9 +18,10 @@ export const authenticate = async (req, res, next) => {
 	try {
 		const decoded = await verifyToken(token);
 		req.authenticatedUserID = decoded.id;
+		next();
 	} catch (error) {
 		next(createError.Unauthorized());
 	}
-
-	next();
 };
+
+export default authenticate;
