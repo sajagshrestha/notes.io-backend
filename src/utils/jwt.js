@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 /**
- * create jwt token
+ * Create jwt token
  *
  * @param {Object} payload
  * @returns {String}
@@ -11,7 +11,7 @@ export const createAccessToken = (payload) => {
 };
 
 /**
- * verify jwt token
+ * Verify jwt token
  *
  * @param {String} token
  * @returns {Promise}

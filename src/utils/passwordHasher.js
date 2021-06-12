@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 
 /**
- * create password hash
+ * Create password hash
  *
  * @param {String} password
  * @returns {Promise}
@@ -12,7 +12,7 @@ export const hashPassword = async (password) => {
 };
 
 /**
- * verify hashed password
+ * Verify hashed password
  *
  * @param {String} password
  * @param {String} hashedPassword

@@ -1,20 +1,20 @@
 import User from "../models/User.js";
 
 /**
- * create user
+ * Create User
  *
- * @param	{Object} user
- * @returns	{Promise}
+ * @param {Object} note
+ * @returns {Promise}
  */
 export const createUser = async (user) => {
 	return User.forge(user).save(null, { method: "insert" });
 };
 
 /**
- * get user by email
+ * Get user by email
  *
- * @param	{Object} user
- * @returns	{Promise}
+ * @param {Object} note
+ * @returns {Promise}
  */
 export const getUserByEmail = async (email) => {
 	return User.where({ email }).fetch({ require: false });

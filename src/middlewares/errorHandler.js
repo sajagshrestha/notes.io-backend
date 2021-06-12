@@ -1,9 +1,9 @@
 /**
- * error handler middleware
+ * error handler
  *
- * @param	{Object} req
- * @param	{Object} res
- * @param	{Function} next
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
  */
 export const errorHandler = (err, req, res, next) => {
 	res.status(err.statusCode || 500).json({
