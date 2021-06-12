@@ -34,3 +34,15 @@ export const getNoteByID = async (noteID) => {
 		require: false,
 	});
 };
+
+/**
+ * delete a note
+ *
+ * @param {String} noteID
+ * @returns {Promise}
+ */
+export const deleteNote = async (noteID) => {
+	return Note.where("id", noteID).destroy({
+		require: false,
+	});
+};
