@@ -32,7 +32,9 @@ export const signUserUp = async (req, res, next) => {
 			password: hashedPassword,
 		});
 
-		const accessToken = createAccessToken({ id: createdUser.get("id") });
+		const accessToken = await createAccessToken({
+			id: createdUser.get("id"),
+		});
 		res.status(HttpStatus.CREATED).send({ user: createdUser, accessToken });
 	} catch (err) {
 		next(err);
@@ -61,7 +63,7 @@ export const logUserIn = async (req, res, next) => {
 		if (!passwordMatches)
 			throw new createError.Unauthorized("email or password incorrect");
 
-		const accessToken = createAccessToken({ id: user.get("id") });
+		const accessToken = await createAccessToken({ id: user.get("id") });
 		res.status(HttpStatus.CREATED).send({ user, accessToken });
 	} catch (err) {
 		next(err);

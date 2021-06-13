@@ -4,10 +4,15 @@ import jwt from "jsonwebtoken";
  * Create jwt token
  *
  * @param {Object} payload
- * @returns {String}
+ * @returns {Promise}
  */
-export const createAccessToken = (payload) => {
-	return jwt.sign(payload, process.env.SECRET_KEY);
+export const createAccessToken = async (payload) => {
+	return new Promise((resolve, reject) => {
+		jwt.sign(payload, process.env.SECRET_KEY, (err, token) => {
+			if (err) reject(err);
+			resolve(token);
+		});
+	});
 };
 
 /**
@@ -17,10 +22,10 @@ export const createAccessToken = (payload) => {
  * @returns {Promise}
  */
 export const verifyToken = async (token) => {
-	try {
-		const decoded = jwt.verify(token, process.env.SECRET_KEY);
-		return decoded;
-	} catch (err) {
-		throw err;
-	}
+	return new Promise((resolve, reject) => {
+		jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+			if (err) reject(err);
+			resolve(decoded);
+		});
+	});
 };
