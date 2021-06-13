@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { validate } from "../utils/validate.js";
+import validate from "../utils/validate.js";
 
 const signupSchema = Joi.object({
 	email: Joi.string().email().required(),

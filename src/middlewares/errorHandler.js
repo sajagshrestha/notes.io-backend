@@ -1,4 +1,6 @@
 import HttpStatus from "http-status-codes";
+import buildError from "../utils/buildError.js";
+
 /**
  * generic Error Handler
  *
@@ -8,9 +10,9 @@ import HttpStatus from "http-status-codes";
  * @param {Function} next
  */
 export const genericErrorHandler = (err, req, res, next) => {
-	res.status(err.statusCode || 500).json({
-		error: err.message || "Internal Server Error",
-	});
+	const error = buildError(err);
+
+	res.status(error.code).json({ error });
 };
 
 /**
