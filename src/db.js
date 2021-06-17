@@ -6,7 +6,11 @@ import knexConfig from "./knexfile.js";
 /**
  * Database connection.
  */
-const knex = knexJs(knexConfig);
+const knex = knexJs(
+	process.env.NODE_ENV === "production"
+		? knexConfig.produciton
+		: knexConfig.development
+);
 const bookshelf = bookshelfJs(knex);
 
 export default bookshelf;
