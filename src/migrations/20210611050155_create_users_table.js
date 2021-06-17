@@ -1,4 +1,4 @@
-export function up(knex) {
+export async function up(knex) {
 	return knex.schema.createTable("users", (table) => {
 		table.uuid("id").primary().notNullable().unique();
 		table.string("email").unique().notNullable();
@@ -8,6 +8,6 @@ export function up(knex) {
 	});
 }
 
-export function down(knex) {
+export async function down(knex) {
 	return knex.schema.dropTable("users");
 }
