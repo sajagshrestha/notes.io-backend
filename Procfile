@@ -1,1 +1,1 @@
-web: knex migrate:rollback --knexfile src/knexfile.cjs && knex migrate:latest --knexfile src/knexfile.cjs && node src/index.js
+web: knex migrate:rollback --knexfile src/knexfile.js && knex migrate:latest --knexfile src/knexfile.js && node src/index.js
