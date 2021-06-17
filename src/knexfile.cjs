@@ -1,13 +1,12 @@
-import dotenv from "dotenv";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
+const dotenv = require("dotenv");
+const path = require("path");
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-dotenv.config({ path: join(__dirname, "../", ".env") });
+dotenv.config({ path: path.join(__dirname, "../", ".env") });
 
 const { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DATABASE_URL } =
 	process.env;
-const knexConfig = {
+
+module.exports = {
 	development: {
 		client: process.env.DB_CLIENT,
 		connection: {
@@ -34,5 +33,3 @@ const knexConfig = {
 		},
 	},
 };
-
-export default knexConfig;
