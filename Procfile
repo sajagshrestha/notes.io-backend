@@ -1,1 +1,1 @@
-web: yarn rollback && yarn migrate && yarn start
+web: knex migrate:rollback --knexfile src/knexfile.js && knex migrate:latest --knexfile src/knexfile.js && node src/index.js
