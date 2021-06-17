@@ -4,6 +4,7 @@ import authorize from "../middlewares/authorize.js";
 import {
 	createNote,
 	fetchUserNotes,
+	fetchSingleNote,
 	deleteNote,
 	editNote,
 } from "../controllers/noteController.js";
@@ -12,6 +13,7 @@ const router = Router();
 
 router.post("/", authenticate, noteValidator, createNote);
 router.get("/", authenticate, fetchUserNotes);
+router.get("/:id", authenticate, authorize, fetchSingleNote);
 router.put("/:id", authenticate, authorize, noteValidator, editNote);
 router.delete("/:id", authenticate, authorize, deleteNote);
 
